@@ -2,6 +2,24 @@ import uuid
 
 from pydantic import EmailStr
 from sqlmodel import Field, Relationship, SQLModel
+from sqlalchemy import Column, Integer, String, Text  
+from .database import Base  
+
+class Video(Base):  
+    __tablename__ = "videos"  
+
+    id = Column(Integer, primary_key=True, index=True)  
+    title = Column(String, index=True)  
+    url = Column(String)  
+    transcript = Column(Text)  
+
+class Article(Base):  
+    __tablename__ = "articles"  
+
+    id = Column(Integer, primary_key=True, index=True)  
+    title = Column(String, index=True)  
+    url = Column(String)  
+    content = Column(Text)
 
 
 # Shared properties
